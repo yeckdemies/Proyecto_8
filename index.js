@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const connectDB = require('./src/config/db');
+const recipeRouter = require('./src/api/routes/recipe-router');
+const categoryRouter = require('./src/api/routes/category-router');
 
 const app = express();
 
@@ -11,7 +13,7 @@ connectDB();
 app.use('/api/v1/recipes', recipeRouter);
 app.use('/api/v1/categories', categoryRouter);
 
-app('*', (req, res, next) => {
+app.use('*', (req, res, next) => {
   return res.status(404).json('Route not found');
 });
 
