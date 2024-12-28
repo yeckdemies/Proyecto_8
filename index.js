@@ -3,12 +3,19 @@ const express = require('express');
 const connectDB = require('./src/config/db');
 const recipeRouter = require('./src/api/routes/recipe-router');
 const categoryRouter = require('./src/api/routes/category-router');
+const cloudinary = require('cloudinary').v2;
 
 const app = express();
 
 app.use(express.json());
 
 connectDB();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 app.use('/api/v1/recipes', recipeRouter);
 app.use('/api/v1/categories', categoryRouter);
