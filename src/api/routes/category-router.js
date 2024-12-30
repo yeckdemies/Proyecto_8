@@ -2,7 +2,8 @@ const { uploadCategories } = require('../../middlewares/upload-file');
 const {
   getCategories,
   postCategory,
-  deleteCategory
+  deleteCategory,
+  putCategory
 } = require('../controllers/category-controller');
 
 const categoryRouter = require('express').Router();
@@ -13,7 +14,11 @@ categoryRouter.post(
   uploadCategories.single('imageUrl'),
   postCategory
 );
-//TODO PUT
+categoryRouter.put(
+  '/updateCategory/:id',
+  uploadCategories.single('imageUrl'),
+  putCategory
+);
 categoryRouter.delete('/deleteCategory/:id', deleteCategory);
 
 module.exports = categoryRouter;

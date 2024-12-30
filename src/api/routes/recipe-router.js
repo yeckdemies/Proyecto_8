@@ -1,5 +1,10 @@
 const { uploadRecipes } = require('../../middlewares/upload-file');
-const { getRecipes, postRecipe } = require('../controllers/recipe-controller');
+const {
+  getRecipes,
+  postRecipe,
+  deleteRecipe,
+  putRecipe
+} = require('../controllers/recipe-controller');
 
 const recipeRouter = require('express').Router();
 
@@ -9,7 +14,11 @@ recipeRouter.post(
   uploadRecipes.single('imageUrl'),
   postRecipe
 );
-//TODO PUT
-//TODO Delete
+recipeRouter.put(
+  '/updateRecipe/:id',
+  uploadRecipes.single('imageUrl'),
+  putRecipe
+);
+recipeRouter.delete('/deleteRecipe/:id', deleteRecipe);
 
 module.exports = recipeRouter;

@@ -17,8 +17,8 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-app.use('/api/v1/recipes', recipeRouter);
 app.use('/api/v1/categories', categoryRouter);
+app.use('/api/v1/recipes', recipeRouter);
 
 app.use('*', (req, res, next) => {
   return res.status(404).json('Route not found');
