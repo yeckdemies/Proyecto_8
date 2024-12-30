@@ -14,7 +14,14 @@ const getRecipes = async (req, res, next) => {
 
 const postRecipe = async (req, res, next) => {
   try {
+    const { category } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(category)) {
+      return res.status(400).json({ error: 'Invalid category ID' });
+    }
+
     const newRecipe = new Recipe(req.body);
+
     if (req.file) {
       newRecipe.imageUrl = req.file.path;
     }
