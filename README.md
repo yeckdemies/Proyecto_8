@@ -1,4 +1,4 @@
-# Proyecto para la Gestión de Eventos
+# Proyecto para la Gestión de Categorías y Recetas
 API para la gestión de recetas y sus categorías
 
 ## Librerías necesarias
