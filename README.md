@@ -23,11 +23,7 @@ API para la gestión de recetas y sus categorías
 ## Carga inicial de datos (Opcional)
 1. Navega al directorio seeds
     ```sh
-    cd Proyecto_8/src/utils/
-    ```
-2. Ejecuta la semilla
-    ```sh
-    node seed.js
+    npm run seed
     ```
 ## Ejecución en Desarrollo
 1. Inicia el servidor en modo desarrollo:
